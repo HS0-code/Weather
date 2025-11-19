@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("City not found");
                 return;
             }
+            console.log(data)
 
             const weather = {
                 city: data.name, 
@@ -34,6 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("city-output").textContent = `${weather.city}, ${weather.country}`;
 document.getElementById("temp-output").textContent = `${weather.temp} °F`;
 document.getElementById("weather-display").style.display = "block";
+document.getElementById("main-output").textContent = `Main: ${data.weather[0].main}`;
+document.getElementById("wind-output").textContent = `Wind Speed: ${data.wind.speed} mph`;
+document.getElementById("visibility-output").textContent = `Visibility: ${data.visibility} m`;
         })
         .catch((err)=>{
             alert("Error fetching weather!");
